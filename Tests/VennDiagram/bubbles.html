@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    	<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="bubbles.css" />
+  		
+    	<title>Chrissie - Thats me!</title>
+
+    	<!-- Google fonts -->
+    	<link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+
+		<!-- JavaScript -->
+		<script src="http://d3js.org/d3.v3.min.js"></script>
+		<script src="https://d3js.org/d3-ease.v1.min.js"></script>
+    </head>
+
+  	<body>
+  		<div class="main">
+		<svg class="venn" id ="VennDiagram" width="400px" height="400px" viewBox="0 0 80 85">
+			
+			<g filter="url(#gooey)" id="group2" style="opacity: 0.5;">
+			</g>
+			<g filter="url(#gooey)" id="group3" style="opacity: 0.5;">
+			</g>
+			<g filter="url(#gooey)" id="group1" style="opacity: 0.5;">
+			</g>
+
+		<defs>
+		    <filter id="gooey">
+		      <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur" color-interpolation-filters="sRGB" />
+		      <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -5" result="gooey"/>
+		      <feBlend in="SourceGraphic" in2="gooey" operator="atop"/>
+		    </filter>
+
+		    <radialGradient id="gradient1" gradientUnits="userSpaceOnUse">
+		      <stop offset="0%" style="stop-color:#fb6a4a;stop-opacity:1" />
+		      <stop offset="100%" style="stop-color:#fb6a4a;stop-opacity:1" />
+		    </radialGradient>
+
+		    <radialGradient id="gradient2" gradientUnits="userSpaceOnUse">
+		      <stop offset="0%" style="stop-color:#67001f;stop-opacity:1" />
+		      <stop offset="100%" style="stop-color:#67001f;stop-opacity:1" />
+		    </radialGradient>
+
+		     <radialGradient id="gradient3" gradientUnits="userSpaceOnUse">
+		      <stop offset="0%" style="stop-color:#7fcdbb;stop-opacity:1" />
+		      <stop offset="100%" style="stop-color:#41b6c4;stop-opacity:1" />
+		    </radialGradient>    
+		</defs>
+		</svg>
+		</div>
+
+ 	  <script src="bubbles.js"></script>
+  	</body>
+</html>

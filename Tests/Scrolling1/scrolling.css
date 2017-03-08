@@ -1,0 +1,63 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+html {
+  font-size: 18px;
+}
+#scrollable {
+  height: 100vh;
+  width: 100vw;
+  overflow-y: auto;
+}
+#scrollable > * {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.inner {
+  padding: 8rem 2rem 10rem;
+}
+.inner > *+* { /* '>' means direct child, '*+*' means anything with any sibling before it */
+  margin-top: 1rem;
+}
+.paragraph {
+  font-size: 1rem;  /* based on html font size - 1.1rem slightly bigger*/
+  color: hsl(0, 0%, 80%); /*  H is the hue measured in degrees of the color circle (red = 0°; green = 120°; blue = 240°). S is the saturation (100% full saturation, 0% is a shade of gray); L is the lightness (100% is white, 0% is black, 50% is 'normal')*/
+}
+.paragraph.highlight {
+  color: black;
+}
+.bubble {
+  border-radius: 50%;
+  background-color: blue;
+  width: 30px;
+  height: 30px;
+  float: left;
+  margin: 10px;
+}
+.bubble.hidden {
+  opacity: 0;
+}
+.svg-bubble {
+  fill: blue;
+}
+#canvas {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  pointer-events: none;
+}
+
+/*
+div {
+    background-color: #52ba3d;
+    background-image: url('../img/picture.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+div {
+    background: #52ba3d url('../img/picture.jpg') no-repeat cover;
+}*/
