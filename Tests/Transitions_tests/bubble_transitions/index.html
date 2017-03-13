@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="css/share.css" />
+    <link rel="stylesheet" type="text/css" href="css/simple.css" />
+    <link rel="stylesheet" type="text/css" href="css/css-transition.css" />
+    <link rel="stylesheet" type="text/css" href="css/keyframe.css" />
+    <link rel="stylesheet" type="text/css" href="css/tween-path.css" />
+    <link rel="stylesheet" type="text/css" href="css/d3-tweening.css" />
+    <style>
+      * {
+        font-size: 1rem;
+        text-align: center;
+        font-family: sans-serif;
+        font-weight: 100;
+      }
+      body {
+        overflow-y: scroll;
+        overflow-x: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h2>TweenMax</h2>    
+      <div class="share">
+        <button class="share-toggle-button"></button>
+        <ul class="share-items">
+          <li class="share-item">
+            <a href="#" class="share-button"></a>
+          </li>
+          <li class="share-item">
+            <a href="#" class="share-button"></a>
+          </li>
+        </ul>
+      </div>
+      <h2>simple TweenMax</h2> 
+      <div class="simple-tween">
+        <div class="circle left"></div>
+        <div class="circle right"></div>
+        <div class="circle center"></div>
+      </div>
+      <h2>CSS transition</h2>
+      <div class="css-transition">
+        <div class="circle left"></div>
+        <div class="circle right"></div>
+        <div class="circle center"></div>
+      </div>
+      <h2>keyframe animation</h2> 
+      <div class="keyframe"> 
+        <div class="circle left"></div>
+        <div class="circle right"></div>
+        <div class="circle center"></div>
+      </div>
+      <h2>TweenMax - random path</h2>
+      <div class="tween-path">
+        <div class="circle left"></div>
+        <div class="circle right"></div>
+        <div class="circle center"></div>
+      </div>
+      <h2>D3</h2>
+      <div class="d3-tweening"></div>
+    </div>
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="0" height="0">
+      <defs>
+        <filter id="goo" x="-50%" y="-100%" width="200%" height="400%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="blur" />
+          <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 35 -15" result="goo" />
+          <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+        </filter>
+      </defs>
+    </svg>
+
+    <script src="vendor/jquery.min.js"></script>
+    <script src="vendor/TweenMax.min.js"></script>
+    <script src="vendor/d3.v3.min.js"></script>
+    <script src="vendor/d3-ease.v1.min.js"></script>
+    <script src="js/share.js"></script>
+    <script src="js/simple.js"></script>
+    <script src="js/css-transition.js"></script>
+    <script src="js/keyframe.js"></script>
+    <script src="js/tween-path.js"></script>
+    <script src="js/d3-tweening.js"></script>
+  </body>
+</html>

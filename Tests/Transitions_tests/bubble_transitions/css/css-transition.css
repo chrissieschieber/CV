@@ -1,0 +1,33 @@
+.css-transition {
+  max-width: 600px;
+  height: 100px;
+  margin: 0 auto;
+  -webkit-filter: url("#goo");
+  filter: url("#goo");
+  position: relative;
+}
+.css-transition .circle {
+  position: absolute;
+  display: inline-block;
+  border-radius: 50%;
+  background-color: lightblue;
+  left: 50%;
+  top: 50%;
+  width: 80px;
+  height: 80px;
+  margin-left: -40px;
+  margin-top: -40px;
+  transition: transform 0.3s ease-out;
+}
+.css-transition .circle.center {
+  cursor: pointer;
+}
+.css-transition .circle.center.expanded {
+  transform: scale(0.6);
+}
+.css-transition .circle.left.expanded {
+  transform: translate(-75px) scale(0.6);
+}
+.css-transition .circle.right.expanded {
+  transform: translate(75px) scale(0.6);
+}

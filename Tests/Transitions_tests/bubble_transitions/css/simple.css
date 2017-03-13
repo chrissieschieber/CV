@@ -1,0 +1,28 @@
+
+.simple-tween {
+  max-width: 600px;
+  height: 100px;
+  margin: 0 auto;
+  -webkit-filter: url("#goo");
+  filter: url("#goo");
+  position: relative;
+}
+.simple-tween .circle {
+  position: absolute;
+  display: inline-block;
+  border-radius: 50%;
+  background-color: steelblue;
+  left: 50%;
+  top: 50%;
+  width: 80px;
+  height: 80px;
+  margin-left: -40px;
+  margin-top: -40px;
+}
+.simple-tween .circle.center {
+  cursor: pointer;
+}
+.simple-tween .circle.left, .simple-tween .circle.right {
+  -webkit-transform: scale(0.95, 0.95);
+  transform: scale(0.95, 0.95);
+}

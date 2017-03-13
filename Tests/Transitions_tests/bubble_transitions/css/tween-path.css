@@ -1,0 +1,30 @@
+
+.tween-path {
+  max-width: 600px;
+  height: 100px;
+  margin: 0 auto;
+  -webkit-filter: url("#goo");
+  filter: url("#goo");
+  position: relative;
+  overflow: visible;
+}
+.tween-path .circle {
+  position: absolute;
+  display: inline-block;
+  border-radius: 50%;
+  background-color: salmon;
+  left: 50%;
+  top: 50%;
+  width: 80px;
+  height: 80px;
+  margin-left: -40px;
+  margin-top: -40px;
+}
+.tween-path .circle.center {
+  cursor: pointer;
+}
+.tween-path .circle.left, .tween-path .circle.right {
+  -webkit-transform: scale(0.95, 0.95);
+  transform: scale(0.95, 0.95);
+}
+

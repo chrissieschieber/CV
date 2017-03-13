@@ -64,6 +64,7 @@ small {
   width: 55px;
   height: 55px;
   position: absolute;
+  left: -40px;
   margin: 10px;
   opacity: 0.7;
 }

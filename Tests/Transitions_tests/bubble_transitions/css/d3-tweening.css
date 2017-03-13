@@ -1,0 +1,15 @@
+.d3-tweening {
+  max-width: 600px;
+  height: 100px;
+  margin: 0 auto;
+}
+.d3-tweening > svg {
+  -webkit-filter: url("#goo");
+  filter: url("#goo");
+  width: 100%;
+  height: 100%;
+}
+.d3-tweening .circle {
+
+  fill: orange;
+}

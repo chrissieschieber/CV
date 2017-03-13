@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="stylesheet" type="text/css" href="css/share.css" />
+	</head>
+	<body class="demo-6">
+			</header>
+			<div class="content">
+				<div class="share">
+					<button class="share-toggle-button">
+						<i class="share-icon fa fa-share-alt"></i>
+					</button>
+					<ul class="share-items">
+						<li class="share-item">
+							<a href="#" class="share-button">
+								<i class="share-icon fa fa-facebook"></i>
+							</a>
+						</li>
+						<li class="share-item">
+							<a href="#" class="share-button">
+								<i class="share-icon fa fa-tumblr"></i>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			
+			<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="800">  <!-- why xml namespace - and outside the svg elements, but gooey applied to them-->
+			  <defs>
+			    <filter id="goo">
+			      <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="blur" />
+			      <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 35 -15" result="goo" />
+			      <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+			    </filter>
+			  </defs>
+			</svg>
+		</div><!-- /container -->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/TweenMax.min.js"></script>
+		<script src="js/share.js"></script>
+	</body>
+</html>
