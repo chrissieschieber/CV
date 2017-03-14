@@ -1,5 +1,5 @@
-var scrollable = document.getElementById('scrollable');
-var canvas = document.getElementById('venn-bubbles');
+  var scrollable = document.getElementById('scrollable');
+var canvas = document.getElementById('canvas');
 var paragraphs = document.getElementsByClassName('paragraph');
 var bubbles = document.getElementsByClassName('bubble');
 
@@ -15,7 +15,7 @@ scrollable.addEventListener('scroll', function(e) {
     }
   }
   var highlightIndex = i-1;
-  paragraphs[highlightIndex].setAttribute("class", "paragraph-move-bubble");
+  paragraphs[highlightIndex].setAttribute("class", "paragraph highlight");
 
   // --- bubble stuff ---
   for (var i = 0; i < bubbles.length; i++) {
@@ -49,9 +49,6 @@ function makeCircle(groupId, cx, cy, r, colour, opacity=1) {
       .style("transition", "r 1s cubic-bezier(0, 1.4, 1, 1)");
 }
 
-// var circle1 = makeCircle("group1", 25, 25, 20, "red");
-// var circle2 = makeCircle("group2", 55, 25, 20, "blue");
-// var circle3 = makeCircle("group3", 38, 41, 20, "lightblue"); //#7fcdbb
-var circle1 = makeCircle("group1", 105, 125, 60, "red");
-var circle2 = makeCircle("group2", 175, 125, 60, "blue");
-var circle3 = makeCircle("group3", 138, 181, 60, "lightblue"); //#7fcdbb
+var circle1 = makeCircle("group1",190, 155, 80, "orange");
+var circle2 = makeCircle("group2", 295, 155, 80, "salmon");
+var circle3 = makeCircle("group3", 238, 231, 80, "steelblue"); //#7fcdbb

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
+    <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="CV.css" />
@@ -12,93 +12,104 @@
     <!-- Scripts -->
     <script src="http://d3js.org/d3.v3.min.js"></script>
     <script src="https://d3js.org/d3-ease.v1.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  </head>
+    <style>
+      * {
+        box-sizing: border-box;
+        paddig: 0;
+        margin: 0;
+      }
+      html, body {
+        height: 100%;
+        overflow-y: hidden;
+        font-size: 18px;
+        font-size: 1rem;
+        font-family: sans-serif;
+        font-weight: 100;
+      }
+    </style>    
 
-  <body>
-    <div id="scrollable">
-      <div class="page-centered scrollable-inner">
-        <div class="paragraph highlight">
-          <div class = "bubble-container">
-          <div class="bubble"></div>
+    </head>
+
+    <body> 
+      <div id="scrollable">
+        <div class="page-centered scrollable-inner">
+          <div class="paragraph move-bubble">
+            <div class = "bubble-container">
+            <div class="bubble"></div>
+            </div>
+            <p>
+              Deep v fap shoreditch air plant. </br>
+              <small>Deep v fap shoreditch air plant. Deep v fap shoreditch air plant. Deep v fap shoreditch air plant.Deep v fap shoreditch air plant.</small>
+            </p>
           </div>
-          <p>
-            Deep v fap shoreditch air plant. </br>
-            <small>Deep v fap shoreditch air plant. Deep v fap shoreditch air plant. Deep v fap shoreditch air plant.Deep v fap shoreditch air plant.</small>
-          </p>
-        </div>
-        <div class="paragraph">
-          <div class = "bubble-container">
-          <div class="bubble"></div>
-        </div>
-          <p>
-            Deep v fap shoreditch air plant. </br>
-            <small>Deep v fap shoreditch air plant. Deep v fap shoreditch air plant. Deep v fap shoreditch air plant.Deep v fap shoreditch air plant.</small>
-          </p>
-        </div>
-        <div class="paragraph">
-          <div class = "bubble-container">
-          <div class="bubble"></div>
-        </div>
-          <p>
-            Deep v fap shoreditch air plant. </br>
-            <small>Deep v fap shoreditch air plant. Deep v fap shoreditch air plant. Deep v fap shoreditch air plant.Deep v fap shoreditch air plant.</small>
-          </p>
-        </div>
-        <div class="paragraph">
-          <div class = "bubble-container">
-          <div class="bubble"></div>
-        </div>
-          <p>
-            Deep v fap shoreditch air plant. </br>
-            <small>Deep v fap shoreditch air plant. Deep v fap shoreditch air plant. Deep v fap shoreditch air plant.Deep v fap shoreditch air plant.</small>
-          </p>
-        </div>
-        <div class="paragraph">
-          <div class = "bubble-container">
-          <div class="bubble"></div>
-        </div>
-          <p>
-            Deep v fap shoreditch air plant. </br>
-            <small>Deep v fap shoreditch air plant. Deep v fap shoreditch air plant. Deep v fap shoreditch air plant.Deep v fap shoreditch air plant.</small>
-          </p>
-        </div>
-        <div class="paragraph">
-          <div class = "bubble-container">
-          <div class="bubble"></div>
-        </div>
-          <p>
-            Deep v fap shoreditch air plant. </br>
-            <small>Deep v fap shoreditch air plant. Deep v fap shoreditch air plant. Deep v fap shoreditch air plant.Deep v fap shoreditch air plant.</small>
-          </p>
+          <div class="paragraph">
+            <div class = "bubble-container">
+            <div class="bubble"></div>
+            </div>
+            <p>
+              Deep v fap shoreditch air plant. </br>
+              <small>Deep v fap shoreditch air plant. Deep v fap shoreditch air plant. Deep v fap shoreditch air plant.Deep v fap shoreditch air plant.</small>
+            </p>
+          </div>
+          <div class="paragraph">
+            <div class = "bubble-container">
+            <div class="bubble"></div>
+            </div>
+            <p>
+              Deep v fap shoreditch air plant. </br>
+              <small>Deep v fap shoreditch air plant. Deep v fap shoreditch air plant. Deep v fap shoreditch air plant.Deep v fap shoreditch air plant.</small>
+            </p>
+          </div>
+          <div class="paragraph">
+            <div class = "bubble-container">
+            <div class="bubble"></div>
+            </div>
+            <p>
+              Deep v fap shoreditch air plant. </br>
+              <small>Deep v fap shoreditch air plant. Deep v fap shoreditch air plant. Deep v fap shoreditch air plant.Deep v fap shoreditch air plant.</small>
+            </p>
+          </div>
+          <div class="paragraph">
+            <div class = "bubble-container">
+            <div class="bubble"></div>
+            </div>
+            <p>
+              Deep v fap shoreditch air plant. </br>
+              <small>Deep v fap shoreditch air plant. Deep v fap shoreditch air plant. Deep v fap shoreditch air plant.Deep v fap shoreditch air plant.</small>
+            </p>
+          </div>
+          <div class="paragraph">
+            <div class = "bubble-container">
+            <div class="bubble"></div>
+            </div>
+            <p>
+              Deep v fap shoreditch air plant. </br>
+              <small>Deep v fap shoreditch air plant. Deep v fap shoreditch air plant. Deep v fap shoreditch air plant.Deep v fap shoreditch air plant.</small>
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-    <div class = "svg-background"></div>
+      <div id="fixed"></div>
 
-    <div class="svg-container">
-      <div class="page-centered">
-        <svg class="venn" id ="canvas">
-          <defs>
-            <filter id="gooey">
-              <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur" color-interpolation-filters="sRGB" />
-              <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -5" result="gooey"/>
-              <feBlend in="SourceGraphic" in2="gooey" operator="atop"/>
-            </filter>    
-          </defs>
+      <svg id = "filter" width="0" height="0">
+        <defs>
+          <filter id="goo" x="-50%" y="-100%" width="200%" height="400%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="blur" />
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 35 -15" result="goo" />
+            <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+          </filter>
+        </defs>
+      </svg>
 
-          <g class="venn" id ="VennDiagram">
-            <g filter="url(#gooey)" id="group2" style="opacity: 0.5;">
-            </g>
-            <g filter="url(#gooey)" id="group3" style="opacity: 0.5;">
-            </g>
-            <g filter="url(#gooey)" id="group1" style="opacity: 0.5;">
-            </g>
-          </g>
-        </svg>
+      <div id = "bubbles-layer">
+        <div class = "venn-bubbles-container">
+          <div class="bigbubble group1"></div>
+          <div class="bigbubble group2"></div>
+          <div class="bigbubble group3"></div>
+        </div>
       </div>
-    </div>
 
-    <script src="CV.js"></script>
-  </body>
+
+    <!-- // <script src="CV.js"></script> -->
+    </body>
 </html>
