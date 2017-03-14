@@ -41,6 +41,13 @@
     position: relative;
 }
 
+.bigbubble-canvas1 {
+  width: 100%
+  height: 100%;
+  -webkit-filter: url("#goo");
+  filter: url("#goo");
+}
+
 /* paragraph stuff */
 .paragraph {
   font-size: 1rem;  
@@ -88,8 +95,6 @@ small {
 .group1 {
   background-color: salmon;
   display: inline-block;
-  -webkit-filter: url("#goo");
-  filter: url("#goo");
   position: absolute;
   top:5%;
   right: 0;
@@ -115,6 +120,15 @@ small {
   right: 10%;
 }
 
+
+.smallbubble {
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  opacity: 0.7;
+  position: absolute;
+  background-color: lightblue;
+}
 /*
 .svg-bubble {
   fill: gray;

@@ -12,6 +12,7 @@
     <!-- Scripts -->
     <script src="http://d3js.org/d3.v3.min.js"></script>
     <script src="https://d3js.org/d3-ease.v1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <style>
       * {
         box-sizing: border-box;
@@ -103,13 +104,16 @@
 
       <div id = "bubbles-layer">
         <div class = "venn-bubbles-container">
-          <div class="bigbubble group1"></div>
+          <div class = "bigbubble-canvas1">
+            <div class="smallbubble"></div>
+            <div class="bigbubble group1"></div>
+          </div>
           <div class="bigbubble group2"></div>
           <div class="bigbubble group3"></div>
         </div>
       </div>
 
 
-    <!-- // <script src="CV.js"></script> -->
+    <script src="CV.js"></script>
     </body>
 </html>
