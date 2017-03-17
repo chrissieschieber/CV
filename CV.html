@@ -13,10 +13,12 @@
     <script src="http://d3js.org/d3.v3.min.js"></script>
     <script src="https://d3js.org/d3-ease.v1.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
+
     <style>
       * {
         box-sizing: border-box;
-        paddig: 0;
+        padding: 0;
         margin: 0;
       }
       html, body {
@@ -35,8 +37,8 @@
       <div id="scrollable">
         <div class="page-centered scrollable-inner">
           <div class="paragraph move-bubble">
-            <div class = "bubble-container">
-            <div class="bubble"></div>
+            <div class = "text-bubble-container">
+            <div class="text-bubble"></div>
             </div>
             <p>
               Deep v fap shoreditch air plant. </br>
@@ -44,8 +46,8 @@
             </p>
           </div>
           <div class="paragraph">
-            <div class = "bubble-container">
-            <div class="bubble"></div>
+            <div class = "text-bubble-container">
+            <div class="text-bubble"></div>
             </div>
             <p>
               Deep v fap shoreditch air plant. </br>
@@ -53,8 +55,8 @@
             </p>
           </div>
           <div class="paragraph">
-            <div class = "bubble-container">
-            <div class="bubble"></div>
+            <div class = "text-bubble-container">
+            <div class="text-bubble"></div>
             </div>
             <p>
               Deep v fap shoreditch air plant. </br>
@@ -62,8 +64,8 @@
             </p>
           </div>
           <div class="paragraph">
-            <div class = "bubble-container">
-            <div class="bubble"></div>
+            <div class = "text-bubble-container">
+            <div class="text-bubble"></div>
             </div>
             <p>
               Deep v fap shoreditch air plant. </br>
@@ -71,8 +73,8 @@
             </p>
           </div>
           <div class="paragraph">
-            <div class = "bubble-container">
-            <div class="bubble"></div>
+            <div class = "text-bubble-container">
+            <div class="text-bubble"></div>
             </div>
             <p>
               Deep v fap shoreditch air plant. </br>
@@ -80,8 +82,8 @@
             </p>
           </div>
           <div class="paragraph">
-            <div class = "bubble-container">
-            <div class="bubble"></div>
+            <div class = "text-bubble-container">
+            <div class="text-bubble"></div>
             </div>
             <p>
               Deep v fap shoreditch air plant. </br>
@@ -92,7 +94,7 @@
       </div>
       <div id="fixed"></div>
 
-      <svg id = "filter" width="0" height="0">
+      <svg id="filter" width="0" height="0">
         <defs>
           <filter id="goo" x="-50%" y="-100%" width="200%" height="400%">
             <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="blur" />
@@ -102,14 +104,18 @@
         </defs>
       </svg>
 
-      <div id = "bubbles-layer">
-        <div class = "venn-bubbles-container">
-          <div class = "bigbubble-canvas1">
-            <div class="smallbubble"></div>
-            <div class="bigbubble group1"></div>
-          </div>
-          <div class="bigbubble group2"></div>
-          <div class="bigbubble group3"></div>
+      <div id="bubbles-layer">
+        <div class="canvas group1">
+          <!-- <div class="smallbubble"></div> -->
+          <div class="bigbubble"></div>
+        </div>
+        <div class="canvas group2">
+          <!-- <div class="smallbubble"></div> -->
+          <div class="bigbubble"></div>
+        </div>
+        <div class="canvas group3">
+          <div class="smallbubble"></div>
+          <div class="bigbubble"></div>
         </div>
       </div>
 

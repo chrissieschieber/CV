@@ -32,22 +32,15 @@
   pointer-events: none;
   overflow: visible;
 }
-
-.venn-bubbles-container {
-    max-width: 600px;
-    height: 350px;
-    overflow: visible;
-    margin: 0 auto;
-    position: relative;
-}
-
-.bigbubble-canvas1 {
-  width: 100%
-  height: 100%;
+.canvas {
   -webkit-filter: url("#goo");
   filter: url("#goo");
+  opacity: 0.7;
+  height: 100%;
 }
-
+.canvas > * {
+  position: absolute;
+}
 /* paragraph stuff */
 .paragraph {
   font-size: 1rem;  
@@ -56,7 +49,7 @@
   padding: 20px 0px;
 }
 
-.paragraph .move-bubble {
+.paragraph.move-bubble {
   color: black;
 }
 
@@ -65,11 +58,11 @@ small {
   display:block;
  }
 
-.bubble-container {
+.text-bubble-container {
   height: 0px;
   position:relative;
 }
-.bubble {
+.text-bubble {
   border-radius: 50%;
   width: 55px;
   height: 55px;
@@ -80,54 +73,58 @@ small {
   background-color: lightgray;
 }
 
-.bubble .hidden {
+.text-bubble.hidden {
   opacity: 0;
 }
 
 /* Venn bubbles */
 .bigbubble {
+  width: 20%;
+  padding: 10% 0;
   border-radius: 50%;
-  width: 180px;
-  height: 180px;
-  opacity: 0.7;
 }
 
-.group1 {
+.group1 > * {
   background-color: salmon;
-  display: inline-block;
-  position: absolute;
-  top:5%;
-  right: 0;
 }
-
-.group2 {
+.group2 > * {
   background-color: orange;
-  display: inline-block;
-  -webkit-filter: url("#goo");
-  filter: url("#goo");
-  position: absolute;
+}
+.group3 > * {
+  background-color: steelblue;
+}
+.group1 > .bigbubble {
+  top: 5%;
+  right: 5%;
+}
+.group2 > .bigbubble {
   top: 5%;
   right: 20%;
 }
-
-.group3 {
-  background-color: steelblue;
-  display: inline-block;
-  -webkit-filter: url("#goo");
-  filter: url("#goo");
-  position: absolute;
-  top: 30%;
-  right: 10%;
+.group3 > .bigbubble {
+  top: 15%;
+  right: 12.5%;
 }
-
-
-.smallbubble {
+.group1 > .smallbubble {
   border-radius: 50%;
   width: 80px;
   height: 80px;
-  opacity: 0.7;
-  position: absolute;
-  background-color: lightblue;
+  top:0;
+  left:0;
+}
+.group2 > .smallbubble {
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  top:0;
+  left:0;
+}
+.group3 > .smallbubble {
+  border-radius: 50%;
+  width: 57px;
+  height: 57px;
+  top:430px;
+  left:85px;
 }
 /*
 .svg-bubble {

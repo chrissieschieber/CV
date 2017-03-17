@@ -37,102 +37,47 @@
 // });
 
 
-$(document).ready(function() {
-  var smallbubble = $(".smallbubble");
-  var bigbubble1 = $(".bigbubble .group1");
+requestAnimationFrame(function() {
+  var smallbubble = document.getElementsByClassName("smallbubble");
+  var bigbubble1 = document.getElementsByClassName(".bigbubble");
 
-  var timeScale = 1.0;
+  var timeScale = 10.0;
 
-  function createPath(left, upFirst, reverse) {
-    var values = [
+  var values = [
       {x: 0, y: 0},
-      {x: spacing * (left ? -0.5 : 0.5), y: spacing * (upFirst ? -0.5 : 0.5) },
-      {x: spacing * (left ? -1.0 : 1.0), y: 0 }
-    ];
-    if (reverse) {
-      return values.reverse();
-    } else {
-      return values;
-    }
-  }
+      {x: 50, y: -300 },
+      {x: 450, y: -250 }
+    ]
 
-  function createPath(left, upFirst, reverse) {
-    var values = [
-      {x: 0, y: 0},
-      {x: spacing * (left ? -0.5 : 0.5), y: spacing * (upFirst ? -0.5 : 0.5) },
-      {x: spacing * (left ? -1.0 : 1.0), y: 0 }
-    ];
-    if (reverse) {
-      return values.reverse();
-    } else {
-      return values;
-    }
-  }
-
-  function createRandomPath(left, numPoints, reverse) {
+    function createRandomPath(numPoints) {
     var values = [];
     values.push({x: 0, y: 0});
     for (var i = 1; i < numPoints - 1; i++) {
-      var x = Math.random() * (spacing * 1.5) * (left ? -1 : 1)
-      var y = 2 * (Math.random() - 0.5) * (spacing * 1.0)
+      var x = Math.random() * (100 * 1.5)
+      var y = 2 * (Math.random() - 0.5) * (100 * 1.0)
       values.push({x: x, y: y });
     }
-    values.push({x: spacing * (left ? -1.0 : 1.0), y: 0 });
-    if (reverse) {
-      return values.reverse();
-    } else {
-      return values;
+    values.push({x: 550, y: -150 });
     }
+
+    function move_bubble() {
+    // animate center circle
+    TweenMax.to(bigbubble1, 1.4 * timeScale, {
+      delay: 0.1,
+      scale: 1,
+      ease: Elastic.easeOut,
+      easeParams: [1.1, 0.3]
+    });
+    // animate smallbubble
+    TweenMax.to(smallbubble, timeScale * 0.3, {
+    bezier: { values: values, type: "soft" },
+    // bezier: {values: createRandomPath(3), type: "soft"},
+    scale: 0.95,
+    ease: Quad.easeInOut,
+    });
   }
+  // TweenMax.to(smallbubble, 0.7, {x: 100});
 
-  function createCrazyRandomPath(left, numPoints, reverse) {
-    var values = [];
-    values.push({x: 0, y: 0});
-    for (var i = 1; i < numPoints - 1; i++) {
-      var x = 2 * (Math.random() - 0.5) * (spacing * 1.5)
-      var y = 2 * (Math.random() - 0.5) * (spacing * 1.0)
-      values.push({x: x, y: y });
-    }
-    values.push({x: spacing * (left ? -1.0 : 1.0), y: 0 });
-    if (reverse) {
-      return values.reverse();
-    } else {
-      return values;
-    }
-  }
-
-  // function movebubble() {
-  //   // animate center circle
-  //   TweenMax.to(circleCenter, 0.8 * timeScale, {
-  //     scale: 0.6,
-  //     ease: Elastic.easeOut,
-  //     easeParams: [1.1, 0.6]
-  //   });
-  //   // animate left circle
-  //   TweenMax.to(circleLeft, 0.8 * timeScale, {
-  //     scale: 0.6,
-  //     ease: Elastic.easeOut,
-  //     easeParams: [1.1, 0.6]
-  //   });
-  //   TweenMax.to(circleLeft, 0.8 * timeScale, {
-  //     bezier: { values: createRandomPath(true, 3, false), type: "soft" },
-  //     // bezier: { values: createPath(true, true, false), type: "soft" },
-  //     ease: Quad.easeInOut,
-  //   });
-  //   // animate right circle
-  //   TweenMax.to(circleRight, 0.8 * timeScale, {
-  //     scale: 0.6,
-  //     ease: Elastic.easeOut,
-  //     easeParams: [1.1, 0.6]
-  //   });
-  //   TweenMax.to(circleRight, 0.8 * timeScale, {
-  //     bezier: { values: createRandomPath(false, 3, false), type: "soft" },
-  //     // bezier: { values: createPath(false, false, false), type: "soft" },
-  //     ease: Quad.easeInOut,
-  //   });
-  // }
-
-  // circleCenter.on("mousedown", function() {
-  //   toggle();
-  // });
+  move_bubble() 
 });
+
