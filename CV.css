@@ -1,3 +1,24 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+html, body {
+  height: 100%;
+  overflow-y: hidden;
+}
+html {
+  font-size: 17px;
+  font-family: sans-serif;
+  font-weight: 100;
+}
+
+@media (max-width: 500px){
+  html {
+    font-size: 15px;
+  }
+}
+
 #scrollable {
   height: 100%;
   width: 100%;
@@ -5,8 +26,9 @@
   overflow-x: hidden;
   position: relative;
 }
+
 .page-centered {
-  width: 100%;
+  width: calc(100% - 4rem);
   max-width: 600px;
   margin: 0 auto;
 }
@@ -21,24 +43,29 @@
   top: 0px;
   pointer-events: none;
   background-color: white;
+  /*opacity: 0.7;*/
 }
 
-#bubbles-layer {
+.canvas-container {
   position: absolute;
   top: 0;
   left: 0;
-  width: calc(100% - 15px);
+  width: 100%;
   height: 100%;
   pointer-events: none;
-  overflow: visible;
 }
-.canvas {
+
+#canvas {
+  height: 100%;
+  overflow: visible;
+  position: relative;
+}
+.filter {
   -webkit-filter: url("#goo");
   filter: url("#goo");
   opacity: 0.7;
-  height: 100%;
 }
-.canvas > * {
+.filter > * {
   position: absolute;
 }
 /* paragraph stuff */
@@ -46,7 +73,7 @@
   font-size: 1rem;  
   color: hsl(0, 0%, 80%); 
   margin: 0px;
-  padding: 20px 0px;
+  padding: 30px 0px;
 }
 
 .paragraph.move-bubble {
@@ -59,13 +86,15 @@ small {
  }
 
 .text-bubble-container {
+  left: -30px;
+  top: -2px;
   height: 0px;
   position:relative;
 }
 .text-bubble {
   border-radius: 50%;
-  width: 55px;
-  height: 55px;
+  width: 40px;
+  height: 40px;
   position: absolute;
   left: -40px;
   margin: 10px;
@@ -79,8 +108,9 @@ small {
 
 /* Venn bubbles */
 .bigbubble {
-  width: 20%;
-  padding: 10% 0;
+  width: 10rem;
+  height: 10rem;
+  margin: -5rem;
   border-radius: 50%;
 }
 
@@ -94,37 +124,36 @@ small {
   background-color: steelblue;
 }
 .group1 > .bigbubble {
-  top: 5%;
-  right: 5%;
+  top: 7rem;
+  right: 7rem;
 }
 .group2 > .bigbubble {
-  top: 5%;
-  right: 20%;
+  top: 7rem;
+  right: 13rem;
 }
 .group3 > .bigbubble {
-  top: 15%;
-  right: 12.5%;
+  top: 12rem;
+  right: 10rem;
 }
-.group1 > .smallbubble {
+
+.smallbubble {
+  width: 4rem;
+  height: 4rem;
+  margin: -2rem;
   border-radius: 50%;
-  width: 80px;
-  height: 80px;
+}
+
+.group1 > .smallbubble {
   top:0;
   left:0;
 }
 .group2 > .smallbubble {
-  border-radius: 50%;
-  width: 80px;
-  height: 80px;
   top:0;
   left:0;
 }
 .group3 > .smallbubble {
-  border-radius: 50%;
-  width: 57px;
-  height: 57px;
-  top:430px;
-  left:85px;
+  top: 12rem;
+  right: 10rem;
 }
 /*
 .svg-bubble {

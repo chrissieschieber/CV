@@ -6,7 +6,7 @@
 //   // --- paragraph stuff ---
 // scrollable.addEventListener('scroll', function(e) {
 
-//   var midPoint = e.target.scrollTop + 0.5 * e.target.offsetHeight;
+//   var midPoint = e.target.scrollTop + 0.45 * e.target.offsetHeight;
 
 //   for (var i = 0; i < paragraphs.length; i++) {
 //     paragraphs[i].setAttribute("class", "paragraph");
@@ -38,18 +38,18 @@
 
 
 requestAnimationFrame(function() {
-  var smallbubble = document.getElementsByClassName("smallbubble");
-  var bigbubble1 = document.getElementsByClassName(".bigbubble");
+  var smallbubble = document.querySelector(".group3 .smallbubble");
+  var bigbubble1 = document.querySelector(".group3 .bigbubble");
 
   var timeScale = 10.0;
 
   var values = [
-      {x: 0, y: 0},
-      {x: 50, y: -300 },
-      {x: 450, y: -250 }
-    ]
+    {x: 0, y: 0},
+    {x: -50, y: 300 },
+    {x: -450, y: 250 }
+  ]
 
-    function createRandomPath(numPoints) {
+  function createRandomPath(numPoints) {
     var values = [];
     values.push({x: 0, y: 0});
     for (var i = 1; i < numPoints - 1; i++) {
@@ -58,9 +58,9 @@ requestAnimationFrame(function() {
       values.push({x: x, y: y });
     }
     values.push({x: 550, y: -150 });
-    }
+  }
 
-    function move_bubble() {
+  function move_bubble() {
     // animate center circle
     TweenMax.to(bigbubble1, 1.4 * timeScale, {
       delay: 0.1,
@@ -69,14 +69,14 @@ requestAnimationFrame(function() {
       easeParams: [1.1, 0.3]
     });
     // animate smallbubble
-    TweenMax.to(smallbubble, timeScale * 0.3, {
-    bezier: { values: values, type: "soft" },
-    // bezier: {values: createRandomPath(3), type: "soft"},
-    scale: 0.95,
-    ease: Quad.easeInOut,
+    TweenMax.from(smallbubble, timeScale * 0.3, {
+      bezier: { values: values, type: "soft" },
+      // bezier: {values: createRandomPath(3), type: "soft"},
+      scale: 0.95,
+      ease: Quad.easeInOut,
     });
   }
-  // TweenMax.to(smallbubble, 0.7, {x: 100});
+  // TweenMax.to(smallbubble, 0.7, {x: "100%"});
 
   move_bubble() 
 });
