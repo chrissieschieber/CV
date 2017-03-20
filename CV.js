@@ -1,45 +1,48 @@
-// var scrollable = document.getElementById('scrollable');
-// var canvas = document.getElementById('venn-bubbles');
-// var paragraphs = document.getElementsByClassName('paragraph');
-// var bubbles = document.getElementsByClassName('bubble');
-
-//   // --- paragraph stuff ---
-// scrollable.addEventListener('scroll', function(e) {
-
-//   var midPoint = e.target.scrollTop + 0.45 * e.target.offsetHeight;
-
-//   for (var i = 0; i < paragraphs.length; i++) {
-//     paragraphs[i].setAttribute("class", "paragraph");
-//     if (paragraphs[i].offsetTop > midPoint) {
-//       break;
-//     }
-//   }
-//   var highlightIndex = i-1;
-//   paragraphs[highlightIndex].setAttribute("class", "paragraph-move-bubble");
-
-//   // --- bubble stuff ---
-//   for (var i = 0; i < bubbles.length; i++) {
-//     if (bubbles[i].offsetTop < midPoint) {
-//       if (bubbles[i].getAttribute('class') === 'bubble') {
-//         console.dir(bubbles[i])
-//         var d3canvas = d3.select('#group1');
-//         d3canvas.append("circle")
-//                 .attr("cx", bubbles[i].offsetLeft + 27).attr("cy", 0.5 * e.target.offsetHeight + 27).attr("r", 27)
-//                 .attr("opacity", 0.7)
-//                 .attr("class", "svg-bubble")
-          
-//       }
-//       bubbles[i].setAttribute("class", "bubble hidden");
-//     } else {
-//       bubbles[i].setAttribute("class", "bubble");
-//     }
-//   }
-// });
-
-
 requestAnimationFrame(function() {
-  var smallbubble = document.querySelector(".group3 .smallbubble");
-  var bigbubble1 = document.querySelector(".group3 .bigbubble");
+
+  var scrollable = document.getElementById('scrollable');
+  var paragraphs = document.getElementsByClassName('paragraph');
+  var text_bubbles = document.getElementsByClassName('text-bubble');
+
+  // --- paragraph stuff ---
+  scrollable.addEventListener('scroll', function(e) {
+
+    var midPoint = e.target.scrollTop + 0.45 * e.target.offsetHeight;
+
+    for (var i = 0; i < paragraphs.length; i++) {
+      if (paragraphs[i].offsetTop < midPoint) {
+        if (text_bubbles[i].getAttribute('class') === 'text-bubble') {
+          var position = text_bubbles[i].getBoundingClientRect();
+          var group_id = text_bubbles[i].getAttribute('data-group');
+          var group = document.getElementById('group' + (group_id || '1')); //if there is no group_id = 1
+          var bigbubble = group.querySelector('.bigbubble');
+          var smallbubble = document.createElement("div");
+
+          // console.log(position.left)
+          // console.log(position.top)
+
+          smallbubble.setAttribute("class", "smallbubble");
+          smallbubble.style.top =  position.top + 25.5 +'px'; //1.5rem - need to convert
+          smallbubble.style.left = position.left + 25.5 +'px';
+          group.appendChild(smallbubble)
+
+          var position2 = smallbubble.getBoundingClientRect();
+
+          // console.log(position2.left)
+          // console.log(position2.top)
+        }
+        text_bubbles[i].setAttribute("class", "text-bubble hidden");
+      } else {
+        text_bubbles[i].setAttribute("class", "text-bubble");
+      }
+    }
+
+  });
+
+  //---- bubbles -------
+
+  var smallbubble = document.querySelector("#group3 .smallbubble");
+  var bigbubble1 = document.querySelector("#group3 .bigbubble");
 
   var timeScale = 10.0;
 
@@ -78,6 +81,6 @@ requestAnimationFrame(function() {
   }
   // TweenMax.to(smallbubble, 0.7, {x: "100%"});
 
-  move_bubble() 
+  // move_bubble() 
 });
 

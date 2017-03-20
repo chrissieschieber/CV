@@ -37,7 +37,7 @@ html {
 }
 
 #fixed {
-  height: 45%;
+  height: 50%;
   width: calc(100% - 15px);
   position: absolute;
   top: 0px;
@@ -55,7 +55,7 @@ html {
   pointer-events: none;
 }
 
-#canvas {
+.canvas {
   height: 100%;
   overflow: visible;
   position: relative;
@@ -64,10 +64,17 @@ html {
   -webkit-filter: url("#goo");
   filter: url("#goo");
   opacity: 0.7;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 .filter > * {
   position: absolute;
 }
+
+
 /* paragraph stuff */
 .paragraph {
   font-size: 1rem;  
@@ -91,15 +98,25 @@ small {
   height: 0px;
   position:relative;
 }
+
+[data-group="1"] {
+  background-color: salmon;
+}
+
+[data-group="2"] {
+  background-color: orange;
+}
+
+[data-group="3"] {
+  background-color: steelblue;
+}
 .text-bubble {
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 2.9rem;
+  height: 2.9rem;
   position: absolute;
-  left: -40px;
-  margin: 10px;
+  /*left: -40px;*/
   opacity: 0.7;
-  background-color: lightgray;
 }
 
 .text-bubble.hidden {
@@ -114,32 +131,32 @@ small {
   border-radius: 50%;
 }
 
-.group1 > * {
+#group1 > * {
   background-color: salmon;
 }
-.group2 > * {
+#group2 > * {
   background-color: orange;
 }
-.group3 > * {
+#group3 > * {
   background-color: steelblue;
 }
-.group1 > .bigbubble {
+#group1 > .bigbubble {
   top: 7rem;
   right: 7rem;
 }
-.group2 > .bigbubble {
+#group2 > .bigbubble {
   top: 7rem;
   right: 13rem;
 }
-.group3 > .bigbubble {
+#group3 > .bigbubble {
   top: 12rem;
   right: 10rem;
 }
 
 .smallbubble {
-  width: 4rem;
-  height: 4rem;
-  margin: -2rem;
+  width: 3rem;
+  height: 3rem;
+  margin: -1.5rem;
   border-radius: 50%;
 }
 
@@ -155,11 +172,4 @@ small {
   top: 12rem;
   right: 10rem;
 }
-/*
-.svg-bubble {
-  fill: gray;
-  radius: 30px;
-  animation: move-to-svg .5s 1;
-}*/
-
 
