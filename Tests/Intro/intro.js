@@ -1,13 +1,15 @@
-$(document).ready(function() {
-  var circleCenter = $(".tween-path .circle.center");
-  var circleLeft = $(".tween-path .circle.left");
-  var circleRight = $(".tween-path .circle.right");
+requestAnimationFrame(function() {
+
+  var circleCenter = document.querySelector(".tween-path .circle.center");
+  var circleLeft = document.querySelector(".tween-path .circle.left");
+  var circleRight = document.querySelector(".tween-path .circle.right");
+  var circleBottom = document.querySelector(".tween-path .circle.bottom");
 
   var expanded = false;
   var spacing = 200;
-  var timeScale = 0.5;
+  var timeScale = 1.0;
 
-  function createPath(left, upFirst, reverse) {
+  function createPath(left, bottom, upFirst, reverse) {
     var values = [
       {x: 0, y: 0},
       {x: spacing * (left ? -0.5 : 0.5), y: spacing * (upFirst ? -0.5 : 0.5) },
@@ -81,6 +83,17 @@ $(document).ready(function() {
       // bezier: { values: createPath(false, false, false), type: "soft" },
       ease: Quad.easeInOut,
     });
+    // animate bottom circle
+    TweenMax.to(circleLeft, 0.8 * timeScale, {
+      scale: 0.6,
+      ease: Elastic.easeOut,
+      easeParams: [1.1, 0.6]
+    });
+    TweenMax.to(circleLeft, 0.8 * timeScale, {
+      bezier: { values: createRandomPath(true, 3, false), type: "soft" },
+      // bezier: { values: createPath(true, true, false), type: "soft" },
+      ease: Quad.easeInOut,
+    });
   }
 
   function close() {
@@ -122,7 +135,7 @@ $(document).ready(function() {
     }
   }
 
-  circleCenter.on("mousedown", function() {
+  circleCenter.addEventListener("mousedown", function() {
     toggle();
   });
 });

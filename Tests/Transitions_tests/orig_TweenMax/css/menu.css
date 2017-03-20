@@ -38,16 +38,6 @@
 	left: 0;
 }
 
-.menu-toggle-icon {
-	font-size: 30px;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 80px;
-	height: 80px;
-	line-height: 80px;
-}
-
 .menu-items {
 	list-style-type: none;
 	padding: 0;
@@ -80,8 +70,4 @@
 	top: 0;
 	left: 0;
 	color: #AD4C4C;
-}
-
-.menu-item-button:hover {
-	color: #fff;
 }

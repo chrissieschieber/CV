@@ -36,18 +36,19 @@ requestAnimationFrame(function() {
 
           var endpoint = group.querySelector('.endpoint')
           var position3 = endpoint.getBoundingClientRect(); 
-          
+
           var centered = document.getElementById('page-centered');
           var position4 = centered.getBoundingClientRect();
-          console.log(position4.left)
+
+          var centered = document.getElementById('fixed');
+          var position5 = centered.getBoundingClientRect();
+
 
           var values = [
             {x: 0, y: 0},
-            {x: Math.random() * ((position3.left - position4.left - 25.5 +'px')/2),y: 2 * (Math.random() - 0.5) * ((-position3.top+ 'px')/2)},
-            {x: position3.left - position4.left - 25.5 +'px', y: -position3.top+ 'px' } //10rem bigbubble
+            {x: position3.left - position4.left - 25.5 +'px', y: position3.top -position5.bottom + 'px' } //10rem bigbubble
            ]
 
-          // TweenMax.to(smallbubble, 0.7, {x: "100%"});
           TweenMax.to(smallbubble, timeScale * 0.3, {
           bezier: {values: values, type: "soft"},
           });
@@ -59,50 +60,6 @@ requestAnimationFrame(function() {
       }
     }
 
-  });
-
-  //---- bubbles -------
-
-  var smallbubble = document.querySelector("#group3 .smallbubble");
-  var bigbubble1 = document.querySelector("#group3 .bigbubble");
-
-  var timeScale = 10.0;
-
-  var values = [
-    {x: 0, y: 0},
-    {x: -50, y: 300 },
-    {x: -450, y: 250 }
-  ]
-
-  function createRandomPath(numPoints) {
-    var values = [];
-    values.push({x: 0, y: 0});
-    for (var i = 1; i < numPoints - 1; i++) {
-      var x = Math.random() * (100 * 1.5)
-      var y = 2 * (Math.random() - 0.5) * (100 * 1.0)
-      values.push({x: x, y: y });
-    }
-    values.push({x: 550, y: -150 });
-  }
-
-  function move_bubble() {
-    // animate center circle
-    TweenMax.to(bigbubble1, 1.4 * timeScale, {
-      delay: 0.1,
-      scale: 1,
-      ease: Elastic.easeOut,
-      easeParams: [1.1, 0.3]
-    });
-    // animate smallbubble
-    TweenMax.from(smallbubble, timeScale * 0.3, {
-      // bezier: { values: values, type: "soft" },
-      bezier: {values: createRandomPath(3), type: "soft"},
-      scale: 0.95,
-      ease: Quad.easeInOut,
-    });
-  }
-  // TweenMax.to(smallbubble, 0.7, {x: "100%"});
-
-  // move_bubble() 
+  }); 
 });
 

@@ -12,7 +12,7 @@ $(document).ready(function(){
 		})
 		$(this).find(".menu-item-icon").css({
 			transform:"rotate("+(-angle)+"deg)"
-		})
+		});
 	})
 	var on=false;
 
