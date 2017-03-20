@@ -1,5 +1,7 @@
 requestAnimationFrame(function() {
 
+  var timeScale = 10.0;
+
   var scrollable = document.getElementById('scrollable');
   var paragraphs = document.getElementsByClassName('paragraph');
   var text_bubbles = document.getElementsByClassName('text-bubble');
@@ -22,14 +24,34 @@ requestAnimationFrame(function() {
           // console.log(position.top)
 
           smallbubble.setAttribute("class", "smallbubble");
-          smallbubble.style.top =  position.top + 25.5 +'px'; //1.5rem - need to convert
+          smallbubble.style.top =  position.top + 25.5 +'px'; //1.5rem (bubble diameter) - need to convert
           smallbubble.style.left = position.left + 25.5 +'px';
           group.appendChild(smallbubble)
 
           var position2 = smallbubble.getBoundingClientRect();
-
           // console.log(position2.left)
           // console.log(position2.top)
+
+          //move bubbles to endpoint
+
+          var endpoint = group.querySelector('.endpoint')
+          var position3 = endpoint.getBoundingClientRect(); 
+          
+          var centered = document.getElementById('page-centered');
+          var position4 = centered.getBoundingClientRect();
+          console.log(position4.left)
+
+          var values = [
+            {x: 0, y: 0},
+            {x: Math.random() * ((position3.left - position4.left - 25.5 +'px')/2),y: 2 * (Math.random() - 0.5) * ((-position3.top+ 'px')/2)},
+            {x: position3.left - position4.left - 25.5 +'px', y: -position3.top+ 'px' } //10rem bigbubble
+           ]
+
+          // TweenMax.to(smallbubble, 0.7, {x: "100%"});
+          TweenMax.to(smallbubble, timeScale * 0.3, {
+          bezier: {values: values, type: "soft"},
+          });
+
         }
         text_bubbles[i].setAttribute("class", "text-bubble hidden");
       } else {
@@ -73,8 +95,8 @@ requestAnimationFrame(function() {
     });
     // animate smallbubble
     TweenMax.from(smallbubble, timeScale * 0.3, {
-      bezier: { values: values, type: "soft" },
-      // bezier: {values: createRandomPath(3), type: "soft"},
+      // bezier: { values: values, type: "soft" },
+      bezier: {values: createRandomPath(3), type: "soft"},
       scale: 0.95,
       ease: Quad.easeInOut,
     });

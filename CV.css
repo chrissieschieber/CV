@@ -27,7 +27,7 @@ html {
   position: relative;
 }
 
-.page-centered {
+#page-centered {
   width: calc(100% - 4rem);
   max-width: 600px;
   margin: 0 auto;
@@ -160,15 +160,23 @@ small {
   border-radius: 50%;
 }
 
-.group1 > .smallbubble {
-  top:0;
-  left:0;
+.endpoint {
+  width: 1rem;
+  height: 1rem;
+  margin: -0.5rem;
+  border-radius: 50%;
+  opacity: 0;
 }
-.group2 > .smallbubble {
-  top:0;
-  left:0;
+
+#group1 > .endpoint {
+  top:7rem;
+  right:7rem;
 }
-.group3 > .smallbubble {
+#group2 > .endpoint {
+  top:7rem;
+  right:13rem;
+}
+#group3 > .endpoint {
   top: 12rem;
   right: 10rem;
 }
