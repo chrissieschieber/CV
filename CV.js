@@ -93,6 +93,9 @@ requestAnimationFrame(function() {
 
           TweenMax.to(smallbubble, timeScale * 0.3, {
           bezier: {values: values, type: "soft"},
+          onComplete: function () {
+            endpoint.append(smallbubble);
+            }
           });
 
         }
