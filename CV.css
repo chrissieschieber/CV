@@ -33,7 +33,7 @@ html {
   margin: 0 auto;
 }
 .scrollable-inner {
-  padding: 25rem 2rem 35rem;
+  padding: 27em 2rem 35rem;
 }
 
 #fixed {
@@ -101,23 +101,23 @@ small {
 }
 
 [data-group="1"] {
-  background-color: salmon;
+  background-color: darkgrey;
 }
 
 [data-group="2"] {
-  background-color: orange;
+  background-color: #fb6a4a;
 }
 
 [data-group="3"] {
-  background-color: steelblue;
+  background-color: #67001f;
 }
 .text-bubble {
   border-radius: 50%;
   width: 2.9rem;
   height: 2.9rem;
   position: absolute;
-  /*left: -40px;*/
-  opacity: 0.7;
+  left: -20px;
+  opacity: 0.9;
 }
 
 .text-bubble.hidden {
@@ -133,25 +133,26 @@ small {
 }
 
 #group1 > * {
-  background-color: salmon;
+  background-color: darkgrey;
 }
 #group2 > * {
-  background-color: orange;
+  background-color: #fb6a4a;
 }
 #group3 > * {
-  background-color: steelblue;
+  background-color: #67001f;
 }
 #group1 > .bigbubble {
   top: 7rem;
-  right: 7rem;
+  right: 7rem; /*7*/
 }
 #group2 > .bigbubble {
   top: 7rem;
   right: 13rem;
 }
 #group3 > .bigbubble {
-  top: 12rem;
-  right: 10rem;
+  top: 12rem; /*12*/
+  right: 10rem; /*10*/
+  cursor: pointer;
 }
 
 .smallbubble {
@@ -169,16 +170,17 @@ small {
   opacity: 0;
 }
 
+/*add an extra 3 rem to top - so fast moving bubbles dont overshoot*/
 #group1 > .endpoint {
-  top:7rem;
+  top:10rem;
   right:7rem;
 }
 #group2 > .endpoint {
-  top:7rem;
+  top:10rem;
   right:13rem;
 }
 #group3 > .endpoint {
-  top: 12rem;
+  top: 15rem;
   right: 10rem;
 }
 

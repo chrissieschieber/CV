@@ -1,29 +1,43 @@
-.tween-path {
+
+.circle-container {
   max-width: 600px;
-  height: 100px;
+  height: 100%;
   margin: 0 auto;
   -webkit-filter: url("#goo");
   filter: url("#goo");
-  position: relative;
-  overflow: visible;
-}
-.tween-path .circle {
   position: absolute;
-  display: inline-block;
-  border-radius: 50%;
-  background-color: salmon;
-  left: 50%;
-  top: 50%;
-  width: 80px;
-  height: 80px;
-  margin-left: -40px;
-  margin-top: -40px;
-}
-.tween-path .circle.center {
-  cursor: pointer;
-}
-.tween-path .circle.left, .tween-path .circle.right, .tween-path .circle.bottom {
-  -webkit-transform: scale(0.95, 0.95);
-  transform: scale(0.95, 0.95);
+  top: 20%;
+  left:50%;
+  font-size: 18px;
 }
 
+.left {
+  background-color: orange;
+}
+
+.right {
+  background-color: darkgray;
+}
+
+.center {
+  background-color: #fb6a4a;
+
+}
+.circle {
+  position: relative;
+  border-radius: 50%;
+  width: 6rem;
+  height: 6rem;
+  margin-left: -3rem;
+  margin-top: -3rem;
+  opacity:0;
+}
+
+.circle-container .circle.center {
+  cursor: pointer;
+  width: 10rem;
+  height: 10rem;
+  margin-left: -5rem;
+  margin-top: -5rem;
+  opacity:0.5;
+}
