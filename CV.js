@@ -2,17 +2,18 @@ requestAnimationFrame(function() {
 
   //intro - bubbles
 
-  var simpleCircleCenter = document.querySelector("#group1 .bigbubble");
-  var simpleCircleLeft = document.querySelector("#group2 .bigbubble");
-  var simpleCircleRight = document.querySelector("#group3 .bigbubble"); //so I can use two classes!
+  var bigbubble_Center = document.querySelector("#group1 .bigbubble");
+  var bigbubble_Left = document.querySelector("#group2 .bigbubble");
+  var bigbubble_Right = document.querySelector("#group3 .bigbubble");
 
   var expanded = false;
   var spacing = 150;
   var timeScale = 1.0;
 
-  function simpleOpen() {
+
+  function open() {
     // animate center circle
-    TweenMax.to(simpleCircleCenter, 0.8 * timeScale, {
+    TweenMax.to(bigbubble_Center, 0.8 * timeScale, {
       y:(spacing/3),
       scale: 0.4,
       opacity: 1,
@@ -20,7 +21,7 @@ requestAnimationFrame(function() {
       easeParams: [1.1, 0.6]
     });
     // animate left circle
-    TweenMax.to(simpleCircleLeft, 1.2 * timeScale, {
+    TweenMax.to(bigbubble_Left, 1.2 * timeScale, {
       x: -spacing,
       scale: 0.6,
       opacity: 0.8,
@@ -28,7 +29,7 @@ requestAnimationFrame(function() {
       easeParams: [1.1, 0.6]
     });
     // animate left circle
-    TweenMax.to(simpleCircleRight, 1.2 * timeScale, {
+    TweenMax.to(bigbubble_Right, 1.2 * timeScale, {
       x: spacing,
       scale: 0.6,
       opacity: 0.8,
@@ -37,8 +38,8 @@ requestAnimationFrame(function() {
     });
   }
 
-  simpleCircleCenter.addEventListener("mousedown", function() {
-    simpleOpen();
+  bigbubble_Center.addEventListener("mousedown", function() {
+    open();
   });
 
   //scrolling!
@@ -47,6 +48,18 @@ requestAnimationFrame(function() {
   var scrollable = document.getElementById('scrollable');
   var paragraphs = document.getElementsByClassName('paragraph');
   var text_bubbles = document.getElementsByClassName('text-bubble');
+
+  // toggle paragraphs
+    $('.paragraph').on('click', function() {
+      $(this).toggleClass('show-description');
+  });
+
+  // for (var i = 0 ; i < paragraphs.length; i++) {
+  //   paragraphs[i].addEventListener('click' , function() {
+  //     console.log("hi");
+  //     paragraphs[i].classList.toggle('show-description');
+  //   });
+  // };
 
   // --- paragraph stuff ---
   scrollable.addEventListener('scroll', function(e) {
@@ -94,7 +107,7 @@ requestAnimationFrame(function() {
           TweenMax.to(smallbubble, timeScale * 0.3, {
           bezier: {values: values, type: "soft"},
           onComplete: function () {
-            endpoint.append(smallbubble);
+            smallbubble.remove();
             }
           });
 
