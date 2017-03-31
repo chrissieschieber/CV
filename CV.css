@@ -69,9 +69,6 @@ html {
   top: 0;
   left: 0;
 }
-.filter > * {
-  position: absolute;
-}
 
 /* paragraph stuff */
 .paragraph {
@@ -142,12 +139,15 @@ small {
 
 #group1 > * {
   background-color: darkgrey;
+  position: absolute;
 }
 #group2 > * {
   background-color: #fb6a4a;
+  position: absolute;
 }
 #group3 > * {
   background-color: #67001f;
+  position: absolute;
 }
 #group1 > .bigbubble {
   top: 6rem; /*7*/

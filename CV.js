@@ -2,45 +2,45 @@ requestAnimationFrame(function() {
 
   //intro - bubbles
 
-  var bigbubble_Center = document.querySelector("#group1 .bigbubble");
-  var bigbubble_Left = document.querySelector("#group2 .bigbubble");
-  var bigbubble_Right = document.querySelector("#group3 .bigbubble");
+  // var bigbubble_Center = document.querySelector("#group1 .bigbubble");
+  // var bigbubble_Left = document.querySelector("#group2 .bigbubble");
+  // var bigbubble_Right = document.querySelector("#group3 .bigbubble");
 
-  var expanded = false;
-  var spacing = 150;
-  var timeScale = 1.0;
+  // var expanded = false;
+  // var spacing = 150;
+  // var timeScale = 1.0;
 
 
-  function open() {
-    // animate center circle
-    TweenMax.to(bigbubble_Center, 0.8 * timeScale, {
-      y:(spacing/3),
-      scale: 0.4,
-      opacity: 1,
-      ease: Elastic.easeOut,
-      easeParams: [1.1, 0.6]
-    });
-    // animate left circle
-    TweenMax.to(bigbubble_Left, 1.2 * timeScale, {
-      x: -spacing,
-      scale: 0.6,
-      opacity: 0.8,
-      ease: Elastic.easeOut,
-      easeParams: [1.1, 0.6]
-    });
-    // animate left circle
-    TweenMax.to(bigbubble_Right, 1.2 * timeScale, {
-      x: spacing,
-      scale: 0.6,
-      opacity: 0.8,
-      ease: Elastic.easeOut,
-      easeParams: [1.1, 0.6]
-    });
-  }
+  // function open() {
+  //   // animate center circle
+  //   TweenMax.to(bigbubble_Center, 0.8 * timeScale, {
+  //     y:(spacing/3),
+  //     scale: 0.4,
+  //     opacity: 1,
+  //     ease: Elastic.easeOut,
+  //     easeParams: [1.1, 0.6]
+  //   });
+  //   // animate left circle
+  //   TweenMax.to(bigbubble_Left, 1.2 * timeScale, {
+  //     x: -spacing,
+  //     scale: 0.6,
+  //     opacity: 0.8,
+  //     ease: Elastic.easeOut,
+  //     easeParams: [1.1, 0.6]
+  //   });
+  //   // animate left circle
+  //   TweenMax.to(bigbubble_Right, 1.2 * timeScale, {
+  //     x: spacing,
+  //     scale: 0.6,
+  //     opacity: 0.8,
+  //     ease: Elastic.easeOut,
+  //     easeParams: [1.1, 0.6]
+  //   });
+  // }
 
-  bigbubble_Center.addEventListener("mousedown", function() {
-    open();
-  });
+  // bigbubble_Center.addEventListener("mousedown", function() {
+  //   open();
+  // });
 
   //scrolling!
   var timeScale = 10.0;
