@@ -61,9 +61,18 @@ requestAnimationFrame(function() {
       x: rect.left + 0.5*rect.width,
       y: rect.top  + 0.5*rect.height
     }
-  }
+  };
 
-  function animateBubble(startingPosition, finalPosition, container, classname) {
+  function animateBubbleRadius(bigBubble) {
+    // animate bigBubble
+  TweenMax.to(bigBubble, 0.8 * timeScale, {
+    scale: 1.1,
+    ease: Elastic.easeOut,
+    easeParams: [1.1, 0.6]
+    });
+  };
+
+  function animateBubble(startingPosition, finalPosition, container, classname, bigBubble) {
     var bubble = document.createElement("div");
     bubble.setAttribute("class", classname);
     bubble.style.left = startingPosition.x + 'px';
@@ -81,12 +90,13 @@ requestAnimationFrame(function() {
     ];
 
     TweenMax.to(bubble, timeScale * 0.3, {
+      scale: 0.8,
       bezier: {values: values, type: "soft"},
       onComplete: function() {
-        bubble.remove();
+        bubble.remove()
       }
     });
-  }
+  };
 
   // --- paragraph stuff ---
   scrollable.addEventListener('scroll', function(e) {
@@ -95,6 +105,8 @@ requestAnimationFrame(function() {
     var bigBubble1 = document.querySelector('#group1 .bigbubble');
     var bigBubble2 = document.querySelector('#group2 .bigbubble');
     var bigBubble3 = document.querySelector('#group3 .bigbubble');
+    var bigBubbles = {
+    }
     var finalPosition = {
       '1': getElementCentre(bigBubble1),
       '2': getElementCentre(bigBubble2),
@@ -112,6 +124,7 @@ requestAnimationFrame(function() {
           var group = document.getElementById('group' + (group_id || '1')); //if there is no group_id = 1
           if (group_id != '3') {
             animateBubble(startingPosition, finalPosition[group_id], group, "smallbubble");
+            animateBubbleRadius(bigBubble1);
   
           } else {
             animateBubble(startingPosition, finalPosition[group_id], group, "smallbubble");
